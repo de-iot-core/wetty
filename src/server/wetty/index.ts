@@ -51,6 +51,24 @@ export default function startWeTTy(
         cmd: args.join(' '),
       });
 
+      /* Begin Duke customization */
+      // Forward variables from URL to ssh shell (i.e. device ip address)
+      const referer = socket.request['headers'].referer;
+      logger.info(`parsing 'vars' from referer: ${referer}`);
+      const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
+      
+      let vars: any;
+      if (varsQueryParam !== null) {
+        logger.info('vars query parameter string: ' + varsQueryParam);
+        vars = JSON.parse(decodeURIComponent(varsQueryParam));
+        logger.info(`parsed 'vars' query parameter: ${JSON.stringify(vars)}`);
+        args.push('echo ip address: ' + vars.ipAddress + ' && $SHELL');
+      }
+      else {
+        logger.info(`no 'vars' query parameter`);
+      }
+      /* End Duke customization */
+
       if (sshUser) {
         spawn(socket, args);
       } else {
