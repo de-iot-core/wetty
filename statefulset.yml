@@ -1,0 +1,48 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: wetty
+spec:
+  serviceName: wetty
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate 
+  selector:
+    matchLabels:
+      app: wetty
+  template:
+    metadata:
+      labels:
+        app: wetty
+    spec:
+      containers:
+        - name: wetty
+          image: CONTAINER_IMAGE
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          ports:
+            - containerPort: 3000
+              name: wetty
+            - containerPort: 22
+              name: ssh              
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wetty
+  labels:
+    name: wetty
+spec:
+  selector:
+    app: wetty
+  ports:
+  - port: 3000
+    name: wetty
