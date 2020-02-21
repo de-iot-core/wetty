@@ -21,5 +21,5 @@ EXPOSE 3000
 RUN useradd -d /home/term -m -s /bin/bash term
 RUN echo 'term:term' | chpasswd
 
-#CMD service ssh start && node . --bypasshelmet --forcessh
-CMD tail -f /dev/null
+CMD service ssh start && node . --bypasshelmet --forcessh
+#CMD tail -f /dev/null
