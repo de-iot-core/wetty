@@ -22,3 +22,4 @@ RUN useradd -d /home/term -m -s /bin/bash term
 RUN echo 'term:term' | chpasswd
 
 CMD service ssh start && node . --bypasshelmet --forcessh
+#CMD tail -f /dev/null
