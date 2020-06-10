@@ -53,15 +53,15 @@ export default function startWeTTy(
 
       /* Begin Duke customization */
       // Forward variables from URL to ssh shell (i.e. device ip address)
-      const referer = socket.request['headers'].referer;
-      logger.info(`parsing 'vars' from referer: ${referer}`);
-      const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
+//      const referer = socket.request['headers'].referer;
+//      logger.info(`parsing 'vars' from referer: ${referer}`);
+//      const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
       
       let vars: any;
       if (varsQueryParam !== null) {
-        logger.info('vars query parameter string: ' + varsQueryParam);
-        vars = JSON.parse(decodeURIComponent(varsQueryParam));
-        logger.info(`parsed 'vars' query parameter: ${JSON.stringify(vars)}`);
+ //       logger.info('vars query parameter string: ' + varsQueryParam);
+ //       vars = JSON.parse(decodeURIComponent(varsQueryParam));
+ //       logger.info(`parsed 'vars' query parameter: ${JSON.stringify(vars)}`);
  //       args.push('echo ip address: ' + vars.ipAddress + ' && $SHELL');
       }
       else {
