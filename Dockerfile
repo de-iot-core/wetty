@@ -26,6 +26,8 @@ CMD chmod +x /home/term/sauron.sh
 CMD mkdir /home/term/.ssh
 COPY id_rsa /home/term/.ssh
 CMD chmod 400 /home/term/.ssh/id_rsa
+CMD chown term:term /home/term/sauron.sh
+CMD chown -R term:term /home/term/.ssh 
 
 CMD service ssh start && node . --bypasshelmet --forcessh
 #CMD tail -f /dev/null
