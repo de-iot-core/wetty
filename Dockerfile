@@ -21,5 +21,11 @@ EXPOSE 3000
 RUN useradd -d /home/term -m -s /bin/bash term
 RUN echo 'term:term' | chpasswd
 
+COPY sauron.sh /home/term
+CMD chmod +x /home/term/sauron.sh
+CMD mkdir /home/term/.ssh
+COPY id_rsa /home/term/.ssh
+CMD chmod 400 /home/term/.ssh/id_rsa
+
 CMD service ssh start && node . --bypasshelmet --forcessh
 #CMD tail -f /dev/null
