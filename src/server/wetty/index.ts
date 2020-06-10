@@ -55,7 +55,7 @@ export default function startWeTTy(
       // Forward variables from URL to ssh shell (i.e. device ip address)
 //      const referer = socket.request['headers'].referer;
 //      logger.info(`parsing 'vars' from referer: ${referer}`);
-//      const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
+      const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
       
       let vars: any;
       if (varsQueryParam !== null) {
