@@ -53,7 +53,7 @@ export default function startWeTTy(
 
       /* Begin Duke customization */
       // Forward variables from URL to ssh shell (i.e. device ip address)
-//      const referer = socket.request['headers'].referer;
+      const referer = socket.request['headers'].referer;
 //      logger.info(`parsing 'vars' from referer: ${referer}`);
       const varsQueryParam: any = new URLSearchParams(referer.split('?')[1]).get('vars');
       
