@@ -6,8 +6,9 @@ chown -R term:term /home/term/.ssh
 
 chmod 400 /home/term/.ssh/id_rsa
 
-service ssh start && node . --bypasshelmet --forcessh
+echo '/bin/bash /home/term/sauron.sh' >> /home/term/.bashrc
 
+service ssh start && node . --bypasshelmet --forcessh
 
 while true
 do
