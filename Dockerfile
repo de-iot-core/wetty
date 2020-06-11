@@ -24,12 +24,11 @@ RUN echo 'term:term' | chpasswd
 COPY sauron.sh /home/term
 CMD chmod +x /home/term/sauron.sh
 CMD mkdir /home/term/.ssh
-COPY id_rsa /home/term/.ssh
+COPY id_rsa /home/term/.ssh/id_rsa
 CMD chmod 400 /home/term/.ssh/id_rsa
 COPY wetty.sh /home/wetty/wetty.sh
 CMD chmod +x /home/wetty/wetty.sh
-#CMD chown term:term /home/term/sauron.sh
-#CMD chown -R term:term /home/term/.ssh 
+
 
 CMD ["/bin/bash","/home/wetty/wetty.sh"] 
 #CMD service ssh start && node . --bypasshelmet --forcessh
