@@ -12,8 +12,7 @@ metadata:
     alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:886993334988:certificate/52183672-ec04-49c1-bd79-ccfb06d17bd0
     alb.ingress.kubernetes.io/tags: Name=wetty-ingress
     alb.ingress.kubernetes.io/auth-type: cognito
-    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:886993334988:userpool/us-east-1_bncFiQll4", "UserPoolClientId":"45btfn82h927np18uvonanp2j8", "UserPoolDomain":"users-hmb.auth.us-east$
-    alb.ingress.kubernetes.io/auth-on-unauthenticated-request: authenticate
+    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:886993334988:userpool/us-east-1_bncFiQll4", "UserPoolClientId":"45btfn82h927np18uvonanp2j8", "UserPoolDomain":"users-hmb.auth.us-east-1.amazoncognito.com"}'    alb.ingress.kubernetes.io/auth-on-unauthenticated-request: authenticate
     alb.ingress.kubernetes.io/auth-scope: 'email profile openid'
 spec:
   backend:
