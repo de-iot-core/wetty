@@ -10,6 +10,7 @@ phases:
       - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' statefulset.yml 
       - $(aws ecr get-login --no-include-email)
       - export KUBECONFIG=$HOME/.kube/config
+      - aws s3 cp s3://de-iot-hmb-wetty-certs/wetty_term_key .
   build: 
     commands:
       - $(aws ecr get-login --region us-east-1 --no-include-email --registry-ids 886993334988)
