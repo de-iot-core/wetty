@@ -63,7 +63,7 @@ export default function startWeTTy(
           logger.info('vars query parameter string: ' + varsQueryParam);
           vars = JSON.parse(decodeURIComponent(varsQueryParam));
           logger.info(`parsed 'vars' query parameter: ${JSON.stringify(vars)}`);
-          args.push('echo ip address: ' + vars.ipAddress + ' && export IP_ADDR='+vars.ipAddress+' && $SHELL');
+          args.push('echo ip address: '+vars.ipAddress+' hub '+vars.hub+' && export IP_ADDR='+vars.ipAddress+' && export HUB='+vars.hub+'&& $SHELL');
         }
         catch(err) {
           logger.error("Error parsing vars " + varsQueryParam);
