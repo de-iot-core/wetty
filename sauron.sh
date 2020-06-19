@@ -8,7 +8,7 @@ else
 	if [ "$HUB" == "gw-residential" ];then
         	ssh -J $JMP_USER@172.28.50.11 de-iotcore@$GW_TARGET || ssh -J $JMP_USER@172.28.50.11 degw-admin@$GW_TARGET
 	elif [ "$HUB" == "gw-default-prov" ];then
-		ssh -J $JMP_USER@172.28.50.11 de-iotcore@$GW_TARGET
+		ssh -J $JMP_USER@172.28.50.11 de-iotcore@$GW_TARGET || ssh -J $JMP_USER@172.28.50.11 degw-admin@$GW_TARGET
 	elif [ "$HUB" == "" ] || [ -z $HUB ];then
 		ssh -J $JMP_USER@172.28.50.11 de-iotcore@$GW_TARGET
 	else
