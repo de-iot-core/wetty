@@ -17,3 +17,4 @@ node_modules
 .esm-cache
 dist
 .idea
+wetty_term_key
