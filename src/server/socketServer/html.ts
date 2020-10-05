@@ -32,6 +32,13 @@ export default (base: string, title: string) => (
     </div>
     <div id="terminal"></div>
     <script src="${resourcePath}public/index.js"></script>
+
+    // Begin Duke customization
+    <script>
+        document.title = JSON.parse(new URLSearchParams(window.location.search).get('vars')).id || '${title}';
+    </script>
+    // End Duke customization
+
   </body>
 </html>`);
 };
