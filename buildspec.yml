@@ -10,7 +10,7 @@ phases:
       - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' statefulset.yml 
       - $(aws ecr get-login --no-include-email)
       - export KUBECONFIG=$HOME/.kube/config
-      - aws secretsmanager get-secret-value --secret-id "hmb-"+$ENV_PROFILE+"-wetty-key" --query SecretString --output text > wetty_term_key
+      - aws secretsmanager get-secret-value --secret-id "hmb-"$ENV_PROFILE"-wetty-key" --query SecretString --output text > wetty_term_key
 #      - aws s3 cp s3://de-iot-hmb-wetty-certs/wetty_term_key .
   build: 
     commands:
